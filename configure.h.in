@@ -1,0 +1,7 @@
+#pragma once
+
+#define VERSION_MAJOR @my_log_VERSION_MAJOR@
+#define VERSION_MINOR @my_log_VERSION_MINOR@
+#define VERSION_PATCH @my_log_VERSION_PATCH@
+#define VERSION_TWEAK @my_log_VERSION_TWEAK@
+#define VERSION "@my_log_VERSION@"

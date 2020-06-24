@@ -1,0 +1,12 @@
+# build folder
+build/
+generated/
+
+
+# vim file
+*.swp
+*.swo
+*.swn
+
+# for ycm
+compile_commands.json
