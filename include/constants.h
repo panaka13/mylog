@@ -1,3 +1,5 @@
+#pragma once
+
 #define OFF 0
 #define DEBUG 1
 #define INFO 2

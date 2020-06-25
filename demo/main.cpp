@@ -2,11 +2,9 @@
 #include <numeric>
 #include <vector>
 
-#include "api.h"
-#include "configure.h"
+#include "mylog.h"
 
 int main() {
-  mylog::log(DEBUG) << "DEBUG" << std::endl;
-  mylog::filter_log(DEBUG);
+  mylog::info("INFO LOG");
   std::cout << 1 << std::endl;
 }
