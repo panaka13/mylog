@@ -18,3 +18,6 @@ configure_file(configure.h.in ${CMAKE_SOURCE_DIR}/generated/include/configure.h)
 
 add_subdirectory(src)
 add_subdirectory(demo)
+
+include(gtest.cmake)
+add_subdirectory(test)

@@ -7,7 +7,7 @@
 
 namespace mylog {
 
-void set_log(std::ostream);
+void set_log(std::ostream &);
 
 void set_log(std::string);
 
