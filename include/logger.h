@@ -23,9 +23,9 @@ class Logger {
 
   static std::shared_ptr<Logger> get_logger();
 
-  static std::shared_ptr<Logger> create_logger(int level, std::ostream &os);
+  static std::shared_ptr<Logger> create_logger(int, std::ostream &);
 
-  static std::shared_ptr<Logger> create_logger(int level, std::ostream &&os);
+  static std::shared_ptr<Logger> create_logger(int, std::ostream &&);
 
   static std::shared_ptr<Logger> create_logger(int level) {
     return create_logger(level, std::cout);
@@ -36,6 +36,10 @@ class Logger {
     return create_logger(level, std::ofstream(filename));
   }
 
-  void log(int level, std::string message);
+  void log(int, std::string);
+
+  int get_level() { return this->level; }
+
+  void set_level(int level) { this->level = level; }
 };
 }  // namespace mylog

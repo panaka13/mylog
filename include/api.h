@@ -7,18 +7,20 @@
 
 namespace mylog {
 
-void set_log(std::ostream os);
+void set_log(std::ostream);
 
-void filter_log(int level);
+void set_log(std::string);
 
-void debug(std::string message);
+void filter_log(int);
 
-void info(std::string message);
+void debug(std::string);
 
-void warn(std::string message);
+void info(std::string);
 
-void error(std::string message);
+void warn(std::string);
 
-void fatal(std::string message);
+void error(std::string);
+
+void fatal(std::string);
 
 }  // namespace mylog
