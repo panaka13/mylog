@@ -9,6 +9,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+set(CMAKE_BUILD_TYPE Debug)
+
 # headers folder
 include_directories(${CMAKE_SOURCE_DIR}/include)  
 include_directories(${CMAKE_SOURCE_DIR}/generated/include)

@@ -2,8 +2,9 @@
 
 #include <iostream>
 
+#include "base_logger.h"
 #include "constants.h"
-#include "logger.h"
+#include "file_logger.h"
 
 namespace mylog {
 
