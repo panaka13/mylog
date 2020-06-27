@@ -1,7 +1,8 @@
-#include "api.h"
-
+#include <ctime>
+#include <iomanip>
 #include <memory>
 
+#include "api.h"
 #include "base_logger.h"
 #include "file_logger.h"
 #include "stream_logger.h"
@@ -31,4 +32,7 @@ void set_log(std::string filename) {
 }
 
 void filter_log(int level) { logger_ptr->set_level(level); }
+
+void set_format(std::string str) {
+}
 }  // namespace mylog
