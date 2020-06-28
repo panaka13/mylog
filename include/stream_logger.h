@@ -19,5 +19,6 @@ class StreamLogger : public BaseLogger {
       : BaseLogger(level), os(other_os.rdbuf()) {}
 
   void log(int, std::string);
+  void flush();
 };
 }  // namespace mylog

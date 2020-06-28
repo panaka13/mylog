@@ -22,5 +22,6 @@ class FileLogger : public BaseLogger {
   ~FileLogger() { os.flush(); }
 
   void log(int, std::string);
+  void flush();
 };
 }  // namespace mylog

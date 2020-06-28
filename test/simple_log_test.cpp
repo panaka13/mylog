@@ -15,11 +15,13 @@ TEST(SimpleTestSuite, TestSimpleLog) {
 
 TEST(SimpleTestSuite, TestFileOutput) {
   mylog::set_log("tmp");
+  mylog::set_format("%l\n");
   mylog::info("INFO");
   mylog::warn("WARN");
   mylog::debug("DEBUG");
   mylog::fatal("FATAL");
   mylog::error("ERROR");
+  mylog::flush();
   std::ifstream input("tmp");
   std::string s;
   input >> s;
@@ -37,6 +39,7 @@ TEST(SimpleTestSuite, TestFileOutput) {
 TEST(SimpleTestSuite, TestStringStream) {
   std::stringstream ss;
   mylog::set_log(ss);
+  mylog::set_format("%l\n");
   mylog::info("INFO");
   mylog::warn("WARN");
   mylog::debug("DEBUG");

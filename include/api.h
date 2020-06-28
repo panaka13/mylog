@@ -24,4 +24,8 @@ void error(std::string);
 
 void fatal(std::string);
 
+void set_format(std::string);
+
+void flush();
+
 }  // namespace mylog
