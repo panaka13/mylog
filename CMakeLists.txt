@@ -9,15 +9,20 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-configure_file(configure.h.in ../generated/include/configure.h)
+set(CMAKE_BUILD_TYPE Debug)
 
 # headers folder
-include_directories(./include)
-include_directories(./generated/include)
+include_directories(${CMAKE_SOURCE_DIR}/include)  
+include_directories(${CMAKE_SOURCE_DIR}/generated/include)
 
-# main
-add_executable(mylog src/main.cpp)
+# configure header file
+execute_process(COMMAND date "+%z" OUTPUT_VARIABLE timezone)
+math(EXPR timezone_offset "${timezone}/100")
+configure_file(configure.h.in ${CMAKE_SOURCE_DIR}/generated/include/configure.h)
 
-# specify the C++ standard
-set_property(TARGET mylog PROPERTY CXX_STANDARD 17)
+add_subdirectory(src)
+add_subdirectory(demo)
+
+include(gtest.cmake)
+add_subdirectory(test)
 
