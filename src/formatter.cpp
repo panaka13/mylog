@@ -8,6 +8,7 @@ namespace mylog {
 Formatter::Formatter() { set_format("[%Y/%m/%d %H:%M:%S.%i] %l\n"); }
 
 void Formatter::log(std::string message, std::ostream &os) {
+  if (not parsed) parse();
   this->message = message;
   timer.capture_time();
   for (auto &function : fs) os << function();
@@ -54,10 +55,11 @@ std::function<std::string()> Formatter::const_string(std::string str) {
 
 void Formatter::set_format(std::string format) {
   this->format = format;
-  this->parse();
+  this->parsed = false;
 }
 
 void Formatter::parse() {
+  parsed = true;
   std::string current = "";
   fs.clear();
   bool flag = false;
