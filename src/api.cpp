@@ -6,6 +6,7 @@
 
 #include "base_logger.h"
 #include "file_logger.h"
+#include "formatter.h"
 #include "stream_logger.h"
 
 namespace mylog {
@@ -24,12 +25,14 @@ void fatal(std::string message) { logger_ptr->log(FATAL, message); }
 
 void set_log(std::ostream &os) {
   int level = logger_ptr->get_level();
-  logger_ptr = std::make_shared<StreamLogger>(level, os);
+  Formatter formatter = logger_ptr->get_format();
+  logger_ptr = std::make_shared<StreamLogger>(level, os, formatter);
 }
 
 void set_log(std::string filename) {
   int level = logger_ptr->get_level();
-  logger_ptr = std::make_shared<FileLogger>(level, filename);
+  Formatter formatter = logger_ptr->get_format();
+  logger_ptr = std::make_shared<FileLogger>(level, filename, formatter);
 }
 
 void filter_log(int level) { logger_ptr->set_level(level); }

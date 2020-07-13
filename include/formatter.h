@@ -1,3 +1,5 @@
+#pragma once
+
 #include <functional>
 #include <string>
 #include <vector>
@@ -8,12 +10,16 @@ namespace mylog {
 class Formatter {
  protected:
   std::vector<std::function<std::string()>> fs;
+  std::string format;
   std::string message;
   Timer timer;
 
  public:
   Formatter();
-  void log(std::string, std::ostream &);
+  Formatter(Formatter& other) : format(other.format), timer(other.timer) {
+    this->parse();
+  }
+  void log(std::string, std::ostream&);
   void set_format(std::string);
 
  protected:
@@ -29,6 +35,7 @@ class Formatter {
   std::string thread_id();
   std::string process_id();
   std::function<std::string()> const_string(std::string);
+  void parse();
   void factory_function(char);
 };
 }  // namespace mylog

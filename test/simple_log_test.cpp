@@ -64,7 +64,7 @@ TEST(SimpleTestSuite, TestLogOff) {
 
 TEST(SimpleTestSuite, TestLogFatal) {
   std::stringstream ss;
-  mylog::filter_log(OFF);
+  mylog::filter_log(FATAL);
   mylog::set_format("%l\n");
   mylog::set_log(ss);
   mylog::info("INFO");
@@ -77,7 +77,7 @@ TEST(SimpleTestSuite, TestLogFatal) {
 
 TEST(SimpleTestSuite, TestLogError) {
   std::stringstream ss;
-  mylog::filter_log(OFF);
+  mylog::filter_log(ERROR);
   mylog::set_format("%l\n");
   mylog::set_log(ss);
   mylog::info("INFO");
@@ -90,7 +90,7 @@ TEST(SimpleTestSuite, TestLogError) {
 
 TEST(SimpleTestSuite, TestLogWarn) {
   std::stringstream ss;
-  mylog::filter_log(OFF);
+  mylog::filter_log(WARN);
   mylog::set_format("%l\n");
   mylog::set_log(ss);
   mylog::info("INFO");
@@ -103,7 +103,7 @@ TEST(SimpleTestSuite, TestLogWarn) {
 
 TEST(SimpleTestSuite, TestLogInfo) {
   std::stringstream ss;
-  mylog::filter_log(OFF);
+  mylog::filter_log(INFO);
   mylog::set_format("%l\n");
   mylog::set_log(ss);
   mylog::info("INFO");
@@ -116,7 +116,7 @@ TEST(SimpleTestSuite, TestLogInfo) {
 
 TEST(SimpleTestSuite, TestLogDebug) {
   std::stringstream ss;
-  mylog::filter_log(OFF);
+  mylog::filter_log(DEBUG);
   mylog::set_format("%l\n");
   mylog::set_log(ss);
   mylog::info("INFO");

@@ -1,5 +1,6 @@
 #include "formatter.h"
 
+#include <iostream>
 #include <sstream>
 #include <thread>
 
@@ -52,6 +53,11 @@ std::function<std::string()> Formatter::const_string(std::string str) {
 }
 
 void Formatter::set_format(std::string format) {
+  this->format = format;
+  this->parse();
+}
+
+void Formatter::parse() {
   std::string current = "";
   fs.clear();
   bool flag = false;

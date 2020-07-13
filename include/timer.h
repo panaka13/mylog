@@ -10,6 +10,8 @@ namespace mylog {
 struct Timer {
   Timer() : timezone_offset(TIMEZONE * 3600 * 1000) {}
   Timer(int timezone) : timezone_offset(timezone * 3600 * 1000) {}
+  Timer(const Timer& other) : timezone_offset(other.timezone_offset) {}
+  Timer(Timer&& other) : timezone_offset(other.timezone_offset) {}
 
   int timezone_offset;
   int day, month, year;

@@ -18,6 +18,8 @@ class FileLogger : public BaseLogger {
       : BaseLogger(level), os(filename) {}
   FileLogger(int level, std::ofstream &os)
       : BaseLogger(level), os(std::move(os)) {}
+  FileLogger(int level, std::string filename, Formatter &formatter)
+      : BaseLogger(level, formatter), os(filename) {}
 
   ~FileLogger() { os.flush(); }
 
