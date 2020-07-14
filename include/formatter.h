@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -8,6 +9,20 @@
 
 namespace mylog {
 class Formatter {
+  // Static part
+ protected:
+  static std::stringstream ss;
+
+ public:
+  template <class MesssageType>
+  static std::string convert(MesssageType message) {
+    ss << message;
+    std::string ans = ss.str();
+    ss.str(std::string());
+    return ans;
+  }
+  static void set_precision(int);
+
  protected:
   std::vector<std::function<std::string()>> fs;
   std::string format;

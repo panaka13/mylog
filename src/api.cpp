@@ -33,4 +33,6 @@ void filter_log(int level) { logger_ptr->set_level(level); }
 void set_format(std::string str) { logger_ptr->set_format(str); }
 
 void flush() { logger_ptr->flush(); }
+
+void set_precision(int precision) { Formatter::set_precision(precision); }
 }  // namespace mylog

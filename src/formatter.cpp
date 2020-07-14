@@ -5,6 +5,12 @@
 #include <thread>
 
 namespace mylog {
+std::stringstream Formatter::ss = std::stringstream();
+
+void Formatter::set_precision(int precision) {
+  Formatter::ss.precision(precision);
+}
+
 Formatter::Formatter() { set_format("[%Y/%m/%d %H:%M:%S.%i] %l\n"); }
 
 void Formatter::log(std::string message, std::ostream &os) {

@@ -6,6 +6,7 @@
 #include "base_logger.h"
 #include "constants.h"
 #include "file_logger.h"
+#include "formatter.h"
 
 namespace mylog {
 
@@ -19,41 +20,38 @@ std::shared_ptr<BaseLogger> get_logger_ptr();
 
 template <class T>
 void debug(T message) {
-  std::stringstream ss;
-  ss << message;
-  get_logger_ptr()->log(DEBUG, ss.str());
+  std::string converted_message = Formatter::convert(message);
+  get_logger_ptr()->log(DEBUG, converted_message);
 }
 
 template <class T>
 void info(T message) {
-  std::stringstream ss;
-  ss << message;
-  get_logger_ptr()->log(INFO, ss.str());
+  std::string converted_message = Formatter::convert(message);
+  get_logger_ptr()->log(INFO, converted_message);
 }
 
 template <class T>
 void warn(T message) {
-  std::stringstream ss;
-  ss << message;
-  get_logger_ptr()->log(WARN, ss.str());
+  std::string converted_message = Formatter::convert(message);
+  get_logger_ptr()->log(WARN, converted_message);
 }
 
 template <class T>
 void error(T message) {
-  std::stringstream ss;
-  ss << message;
-  get_logger_ptr()->log(ERROR, ss.str());
+  std::string converted_message = Formatter::convert(message);
+  get_logger_ptr()->log(ERROR, converted_message);
 }
 
 template <class T>
 void fatal(T message) {
-  std::stringstream ss;
-  ss << message;
-  get_logger_ptr()->log(FATAL, ss.str());
+  std::string converted_message = Formatter::convert(message);
+  get_logger_ptr()->log(FATAL, converted_message);
 }
 
 void set_format(std::string);
 
 void flush();
+
+void set_precision(int);
 
 }  // namespace mylog
