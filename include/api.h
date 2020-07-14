@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <sstream>
 
 #include "base_logger.h"
 #include "constants.h"
@@ -14,15 +15,42 @@ void set_log(std::string);
 
 void filter_log(int);
 
-void debug(std::string);
+std::shared_ptr<BaseLogger> get_logger_ptr();
 
-void info(std::string);
+template <class T>
+void debug(T message) {
+  std::stringstream ss;
+  ss << message;
+  get_logger_ptr()->log(DEBUG, ss.str());
+}
 
-void warn(std::string);
+template <class T>
+void info(T message) {
+  std::stringstream ss;
+  ss << message;
+  get_logger_ptr()->log(INFO, ss.str());
+}
 
-void error(std::string);
+template <class T>
+void warn(T message) {
+  std::stringstream ss;
+  ss << message;
+  get_logger_ptr()->log(WARN, ss.str());
+}
 
-void fatal(std::string);
+template <class T>
+void error(T message) {
+  std::stringstream ss;
+  ss << message;
+  get_logger_ptr()->log(ERROR, ss.str());
+}
+
+template <class T>
+void fatal(T message) {
+  std::stringstream ss;
+  ss << message;
+  get_logger_ptr()->log(FATAL, ss.str());
+}
 
 void set_format(std::string);
 

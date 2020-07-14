@@ -3,6 +3,7 @@
 #include <chrono>
 #include <iomanip>
 #include <memory>
+#include <sstream>
 
 #include "base_logger.h"
 #include "file_logger.h"
@@ -13,15 +14,7 @@ namespace mylog {
 
 std::shared_ptr<BaseLogger> logger_ptr = std::make_shared<StreamLogger>();
 
-void debug(std::string message) { logger_ptr->log(DEBUG, message); }
-
-void info(std::string message) { logger_ptr->log(INFO, message); }
-
-void warn(std::string message) { logger_ptr->log(WARN, message); }
-
-void error(std::string message) { logger_ptr->log(ERROR, message); }
-
-void fatal(std::string message) { logger_ptr->log(FATAL, message); }
+std::shared_ptr<BaseLogger> get_logger_ptr() { return logger_ptr; }
 
 void set_log(std::ostream &os) {
   int level = logger_ptr->get_level();

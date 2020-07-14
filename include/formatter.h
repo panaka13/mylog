@@ -13,7 +13,7 @@ class Formatter {
   std::string format;
   std::string message;
   Timer timer;
-  bool parsed; 
+  bool parsed;
 
  public:
   Formatter();
