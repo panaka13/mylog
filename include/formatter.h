@@ -1,4 +1,7 @@
+#pragma once
+
 #include <functional>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -6,14 +9,33 @@
 
 namespace mylog {
 class Formatter {
+  // Static part
+ protected:
+  static std::stringstream ss;
+
+ public:
+  template <class MesssageType>
+  static std::string convert(MesssageType message) {
+    ss << message;
+    std::string ans = ss.str();
+    ss.str(std::string());
+    return ans;
+  }
+  static void set_precision(int);
+
  protected:
   std::vector<std::function<std::string()>> fs;
+  std::string format;
   std::string message;
   Timer timer;
+  bool parsed;
 
  public:
   Formatter();
-  void log(std::string, std::ostream &);
+  Formatter(Formatter& other) : format(other.format), timer(other.timer) {
+    this->parse();
+  }
+  void log(std::string, std::ostream&);
   void set_format(std::string);
 
  protected:
@@ -29,6 +51,7 @@ class Formatter {
   std::string thread_id();
   std::string process_id();
   std::function<std::string()> const_string(std::string);
+  void parse();
   void factory_function(char);
 };
 }  // namespace mylog

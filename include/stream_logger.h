@@ -17,6 +17,8 @@ class StreamLogger : public BaseLogger {
   StreamLogger(int level = ALL) : BaseLogger(level), os(std::cout.rdbuf()) {}
   StreamLogger(int level, std::ostream& other_os)
       : BaseLogger(level), os(other_os.rdbuf()) {}
+  StreamLogger(int level, std::ostream& other_os, Formatter& formatter)
+      : BaseLogger(level, formatter), os(other_os.rdbuf()) {}
 
   void log(int, std::string);
   void flush();

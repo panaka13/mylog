@@ -1,9 +1,9 @@
 #pragma once
 
-#define OFF 0
-#define DEBUG 1
-#define INFO 2
-#define WARN 3
-#define ERROR 4
-#define FATAL 5
 #define ALL 6
+#define DEBUG 5
+#define INFO 4
+#define WARN 3
+#define ERROR 2
+#define FATAL 1
+#define OFF 0
