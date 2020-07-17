@@ -1,4 +1,6 @@
-add_library(mylog api.cpp file_logger.cpp stream_logger.cpp formatter.cpp timer.cpp)
+add_library(
+  mylog api.cpp file_logger.cpp stream_logger.cpp formatter.cpp timer.cpp 
+  util.cpp)
 
 
 # specify the C++ standard
