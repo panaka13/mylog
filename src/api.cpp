@@ -6,6 +6,7 @@
 #include <sstream>
 
 #include "base_logger.h"
+#include "daily_logger.h"
 #include "file_logger.h"
 #include "formatter.h"
 #include "stream_logger.h"
@@ -35,4 +36,11 @@ void set_format(std::string str) { logger_ptr->set_format(str); }
 void flush() { logger_ptr->flush(); }
 
 void set_precision(int precision) { Formatter::set_precision(precision); }
+
+void daily_log(std::string directory, std::string pattern) {
+  int level = logger_ptr->get_level();
+  Formatter formatter = logger_ptr->get_format();
+  logger_ptr =
+      std::make_shared<DailyLogger>(ALL, directory, pattern, formatter);
+}
 }  // namespace mylog

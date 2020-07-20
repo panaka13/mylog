@@ -117,4 +117,10 @@ void Formatter::factory_function(char ch) {
       break;
   }
 }
+
+std::string Formatter::str() {
+  std::string ans;
+  for (auto fn : fs) ans.insert(ans.size(), fn());
+  return ans;
+}
 }  // namespace mylog

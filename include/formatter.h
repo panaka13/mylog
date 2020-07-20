@@ -28,13 +28,12 @@ class Formatter {
   std::string format;
   std::string message;
   Timer timer;
-  bool parsed;
+  bool parsed = false;
 
  public:
   Formatter();
-  Formatter(Formatter& other) : format(other.format), timer(other.timer) {
-    this->parse();
-  }
+  Formatter(std::string format) : format(format) {}
+  Formatter(Formatter& other) : format(other.format), timer(other.timer) {}
   void log(std::string, std::ostream&);
   void set_format(std::string);
 
@@ -50,6 +49,7 @@ class Formatter {
   std::string millisecond();
   std::string thread_id();
   std::string process_id();
+  std::string str();
   std::function<std::string()> const_string(std::string);
   void parse();
   void factory_function(char);

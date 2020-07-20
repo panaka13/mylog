@@ -54,4 +54,6 @@ void flush();
 
 void set_precision(int);
 
+void daily_log(std::string, std::string);
+
 }  // namespace mylog

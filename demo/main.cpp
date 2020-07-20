@@ -6,6 +6,6 @@
 
 int main() {
   mylog::set_format("%l\n");
+  mylog::daily_log("./", "%Y_%m_%d.log");
   mylog::info("INFO LOG");
-  std::cout << 1 << std::endl;
 }
