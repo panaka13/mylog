@@ -5,7 +5,6 @@
 #include "mylog.h"
 
 int main() {
-  mylog::set_format("%l\n");
-  mylog::daily_log("./", "%Y_%m_%d.log");
+  mylog::daily_log("./");
   mylog::info("INFO LOG");
 }
