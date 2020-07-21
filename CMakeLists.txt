@@ -25,4 +25,3 @@ add_subdirectory(demo)
 
 include(gtest.cmake)
 add_subdirectory(test)
-
