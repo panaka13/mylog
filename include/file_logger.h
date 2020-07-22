@@ -14,12 +14,17 @@ class FileLogger : public BaseLogger {
   std::ofstream os;
 
  public:
-  FileLogger(int level, std::string filename)
-      : BaseLogger(level), os(filename) {}
+  FileLogger(int level, std::string filename, bool append = false)
+      : BaseLogger(level, append),
+        os(filename, append ? std::ios_base::app | std::ios_base::out
+                            : std::ios_base::out) {}
   FileLogger(int level, std::ofstream &os)
       : BaseLogger(level), os(std::move(os)) {}
-  FileLogger(int level, std::string filename, Formatter &formatter)
-      : BaseLogger(level, formatter), os(filename) {}
+  FileLogger(int level, std::string filename, Formatter &formatter,
+             bool append = false)
+      : BaseLogger(level, formatter, append),
+        os(filename, append ? std::ios_base::app | std::ios_base::out
+                            : std::ios_base::out) {}
 
   ~FileLogger() { os.flush(); }
 

@@ -12,7 +12,7 @@ namespace mylog {
 
 void set_log(std::ostream &);
 
-void set_log(std::string);
+void set_log(std::string, bool = false);
 
 void filter_log(int);
 
@@ -54,6 +54,6 @@ void flush();
 
 void set_precision(int);
 
-void daily_log(std::string, std::string = "%Y_%m_%d.log");
+void daily_log(std::string, std::string = "%Y_%m_%d.log", bool = false);
 
 }  // namespace mylog
