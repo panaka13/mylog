@@ -30,6 +30,6 @@ void Timer::capture_time() {
     this->month += 1;
   }
   this->month += 1;
-  this->day = tick_count;
+  this->day = tick_count + 1;
 }
 }  // namespace mylog
